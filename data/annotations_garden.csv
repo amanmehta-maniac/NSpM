@@ -1,0 +1,22 @@
+dbo:Garden;;;is <A> a <B>;ask where { <A> rdf:type <B> };select distinct(?a) ?b where { ?a a ?b }
+dbo:Garden;;;what is <A>;select ?a where { <A> dbo:abstract ?a };select distinct(?a) where { ?a dbo:abstract [] }
+dbo:Garden;;;where is <A>;select ?a where { <A> dbo:location ?a };select distinct(?a) where { ?a dbo:location [] }
+dbo:Garden;;;location of <A>;select ?a where { <A> dbo:location ?a };select distinct(?a) where { ?a dbo:location [] }
+dbo:Garden;;;latitude of <A>;select ?a where { <A> geo:lat ?a };select distinct(?a) where { ?a geo:lat [] }
+dbo:Garden;;;where is <A> located in;select ?a where { <A> dbo:location ?a };select distinct(?a) where { ?a dbo:location [] }
+dbo:Garden;;;what is <A> about;select ?a where { <A> dct:subject ?a };select distinct(?a) where { ?a dct:subject [] }
+dbo:Garden;;;what are the coordinates of <A>;select ?a where { <A> georss:point ?a };select distinct(?a) where { ?a georss:point [] }
+dbo:Garden;;;longitude of <A>;select ?a where { <A> geo:long ?a };select distinct(?a) where { ?a geo:long [] }
+dbo:Garden;;;when was <A> built;select ?a where { <A> dbp:complete ?a };select distinct(?a) where { ?a dbp:complete [] }
+dbo:Garden;;;is <A> in <B>;ask where { <A> dbo:location <B> };select distinct(?a) ?b where { ?a dbo:location ?b }
+dbo:Garden;;dbo:Garden;which is larger in area <A> or <B>;select ?a where { ?a dbp:area ?b . FILTER(?a = <A> || ?a = <B>) } order by ?b limit 1;select distinct(?a) ?b where { ?a dbp:area [] . ?b dbp:area [] }
+dbo:Garden;;dbo:Garden;which is bigger <A> or <B>;select ?a where { ?a dbp:area ?b . FILTER(?a = <A> || ?a = <B>) } order by ?b limit 1;select distinct(?a) ?b where { ?a dbp:area [] . ?b dbp:area [] }
+;;;which <A> has the most <B>;select ?a count(*) as ?c where { ?a rdf:type <A> . ?b rdf:type <B> . ?b [] ?a } group by ?a order by desc(?c);select distinct(?a) ?b where { ?a a dbo:Garden . ?a rdf:type ?a . ?b rdf:type ?b . ?b [] ?a }
+dbo:Garden;;;what's <A> native name;select ?a where { <A> dbp:nativeName ?a };select distinct(?a) where { ?a dbp:nativeName [] }
+dbo:Garden;;;what is the native name of <A>;select ?a where { <A> dbp:nativeName ?a };select distinct(?a) where { ?a dbp:nativeName [] }
+dbo:Garden;;;who designed <A>;select ?a where { <A> dbo:designer ?a };select distinct(?a) where { ?a dbo:designer [] }
+dbo:Garden;;;when was <A> built;select ?a where { <A> dbp:complete ?a };select distinct(?a) where { ?a dbp:complete [] }
+dbo:Garden;;;when was <A> completed;select ?a where { <A> dbp:complete ?a };select distinct(?a) where { ?a dbp:complete [] }
+dbo:Garden;;;how north is <A>;select ?a where { <A> geo:lat ?a };select distinct(?a) where { ?a geo:lat [] }
+dbo:Garden;;;give me the <A> largest <B>;select ?a where { ?a rdf:type <B> . ?a dbp:area ?b } order by desc(?b) limit <A>;select distinct(?a) where { ?a dbp:area [] }
+dbo:Garden;;;give me the <A> biggest <B>;select ?a where { ?a rdf:type <B> . ?a dbp:area ?b } order by desc(?b) limit <A>;select distinct(?a) where { ?a dbp:area [] }
